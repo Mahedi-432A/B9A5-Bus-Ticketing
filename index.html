@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BUSSTER - Ticketing</title>
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Raleway:wght@100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- css -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- daisy ui and tailwind -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body>
+    <!------------------ head section ---------------->
+    <header>
+        <!------------ nav bar --------->
+        <nav class="lg:container mx-auto">
+            <div class="navbar bg-base-100">
+                <div class="navbar-start">
+                    <div class="dropdown">
+                        <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 12h8m-8 6h16" />
+                            </svg>
+                        </div>
+                        <ul tabindex="0"
+                            class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 text-[#030712b3] font-raleway font-medium text-lg">
+                            <li><a>Home</a></li>
+                            <li>
+                                <a>About</a>
+                            </li>
+
+                            <li><a>Destination</a></li>
+                            <li><a>Search</a></li>
+                        </ul>
+                    </div>
+                    <a class="btn btn-ghost text-4xl text-[#030712] font-raleway font-extrabold">BUSSTER</a>
+                </div>
+                <div class="navbar-center hidden lg:flex">
+                    <ul class="menu menu-horizontal px-1 text-[#030712b3] font-raleway font-medium text-lg">
+                        <li><a>Home</a></li>
+                        <li>
+                            <a>About</a>
+                        </li>
+                        <li><a>Destination</a></li>
+                        <li><a>Search</a></li>
+                    </ul>
+                </div>
+                <div class="navbar-end">
+                    <a class="btn text-[#1dd10066] font-raleway font-bold text-xl">Bus <img src="images/bus-icon.png"
+                            alt=""></a>
+                </div>
+            </div>
+        </nav>
+
+        <!-------------------------- banner ---------------------------->
+        <section class="lg:container mx-auto mt-8 rounded-3xl mb-20">
+            <div class="hero rounded-3xl" style="background-image: url(images/banner.png);">
+                <div class="hero-overlay bg-opacity-60 rounded-3xl"></div>
+                <div class="hero-content text-center text-neutral-content">
+                    <div class="">
+                        <h1 class="mb-5 mt-16 text-5xl lg:text-6xl font-raleway font-extrabold text-white">End-to-End
+                            Travel
+                            with
+                        </h1>
+                        <h1 class="mb-5 text-5xl lg:text-6xl font-raleway font-extrabold text-[#1dd100]">
+                            BUSSTER
+                        </h1>
+                        <p class="mb-5 max-w-2xl font-inter font-normal text-white text-lg">BUSSTER offers end-to-end
+                            travel solutions for commuters. Whether you need to get to work, school, or anywhere else,
+                            BUSSTER can help you plan your trip, find the best route, and book your seat online. With
+                            BUSSTER, you can enjoy a comfortable, convenient, and affordable ride to your destination.
+                            BUSSTER is the smart way to travel by bus.</p>
+
+                        <button class="btn btn-success mb-24 md:mb-28 lg:mb-36"><a
+                                class="font-raleway font-bold text-[#030712] text-xl" href="#">Buy Ticket</a></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!------------------ banner bottom card section -------- -->
+        <section class="w-11/12 lg:container mx-auto">
+
+            <div class="mx-auto flex justify-center gap-8 flex-col md:flex-row lg:-translate-y-36 lg:px-24">
+                <div class="card w-[310px] mx-auto bg-white shadow-xl border-b-2 border-[#1dd100]">
+                    <div class="flex gap-2 p-8 items-center">
+                        <div>
+                            <img src="images/people.png" alt="">
+                        </div>
+                        <div>
+                            <h2 class="card-title text-4xl font-bold font-inter text-[#030712]">500k+</h2>
+                            <p class="text-[#03071299] font-inter font-normal text-lg">Registered users</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card w-[300px] mx-auto bg-white shadow-xl border-b-2 border-[#1dd100]">
+                    <div class="flex gap-2 p-8 items-center">
+                        <div>
+                            <img src="images/people.png" alt="">
+                        </div>
+                        <div>
+                            <h2 class="card-title text-4xl font-bold font-inter text-[#030712]">500k+</h2>
+                            <p class="text-[#03071299] font-inter font-normal text-lg">Registered users</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card w-[300px] mx-auto bg-white shadow-xl border-b-2 border-[#1dd100]">
+                    <div class="flex gap-2 p-8 items-center">
+                        <div>
+                            <img src="images/people.png" alt="">
+                        </div>
+                        <div>
+                            <h2 class="card-title text-4xl font-bold font-inter text-[#030712]">500k+</h2>
+                            <p class="text-[#03071299] font-inter font-normal text-lg">Registered users</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </header>
+</body>
+
+</html>
