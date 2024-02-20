@@ -22,7 +22,7 @@
 
 <body>
     <!------------------ head section ---------------->
-    <header>
+    <header id="header">
         <!------------ nav bar --------->
         <nav class="lg:container mx-auto">
             <div class="navbar bg-base-100">
@@ -138,7 +138,7 @@
     <!-- ---------------- main section ------------------ -->
     <main>
         <!-------------------- best offers section ----------------->
-        <section class="w-11/12 lg:container mx-auto">
+        <section id="section-1" class="w-11/12 lg:container mx-auto">
 
             <h2 class="mt-12 lg:mt-0 text-center text-[#030712] font-raleway font-bold text-4xl mb-8 lg:mb-12">Best
                 offers for you</h2>
@@ -189,7 +189,7 @@
         </section>
 
         <!-------------------------- Ticket section ------------------>
-        <section
+        <section id="section-2"
             class="w-11/12 lg:container mx-auto mt-12 md:mt-16 pb-10 md:pb-16 lg:pb-24 lg:mt-28 border-t-2 border-[#1dd100] rounded-t-3xl bg-[#f7f8f8]">
 
             <!--------------->
@@ -390,15 +390,15 @@
                             <p>DBT <span id="total-price">0</span></p>
                         </div>
                         <!-- discount -->
-                        <div
+                        <div id="discount-box"
                             class="flex justify-between text-[#030712] font-inter font-medium text-base hidden">
                             <p>Discount</p>
-                            <p>DBT <span>0</span></p>
+                            <p>DBT <span id="discount-amount">0</span></p>
                         </div>
-                        <div class="font-inter text-base text-green-600 mt-3 hidden">
+                        <div id="discount-text" class="font-inter text-base text-green-600 mt-3 hidden">
                             <p>Coupon applied successfully.</p>
                         </div>
-                        <div class="bg-white rounded-xl flex justify-between p-2">
+                        <div id="apply-coupon-box" class="bg-white rounded-xl flex justify-between p-2">
                             <input id="enter-coupon" class="font-inter text-sm pl-4 w-full outline-none" type="text"
                                 placeholder="Have any coupon?">
                             <button id="apply-coupon" class="btn bg-[#1dd100]" onclick="promo()" disabled>Apply</button>
@@ -413,22 +413,22 @@
                     <div class="mt-6">
                         <div class="mb-6">
                             <p class="mb-3 font-inter font-semibold text-base text-[#030712]">Passenger Name*</p>
-                            <input class="w-full border-2 border-[#03071233] p-4 outline-none rounded-xl" type="text"
+                            <input onkeyup="fillInputToBuy()" id="passenger-name" class="w-full border-2 border-[#03071233] p-4 outline-none rounded-xl" type="text"
                                 placeholder="Enter your name">
                         </div>
                         <div class="mb-6">
                             <p class="mb-3 font-inter font-semibold text-base text-[#030712]">Phone Number*</p>
-                            <input class="w-full border-2 border-[#03071233] p-4 outline-none rounded-xl" type="number"
+                            <input onkeyup="fillInputToBuy()" id="phone-number" class="w-full border-2 border-[#03071233] p-4 outline-none rounded-xl" type="number"
                                 placeholder="Enter your phone number">
                         </div>
                         <div class="mb-6">
                             <p class="mb-3 font-inter font-semibold text-base text-[#030712]">Email</p>
-                            <input class="w-full border-2 border-[#03071233] p-4 outline-none rounded-xl" type="email"
+                            <input id="email" class="w-full border-2 border-[#03071233] p-4 outline-none rounded-xl" type="email"
                                 placeholder="Enter your email id">
                         </div>
 
                         <div>
-                            <button class="btn w-full bg-[#1dd100] mb-6 text-white" disabled>Next</button>
+                            <button onclick="confirmedAndNext()" id="confirm-next" class="btn w-full bg-[#1dd100] mb-6 text-white" disabled>Next</button>
                             <div class="flex md:justify-around justify-between text-[#03071299] font-inter text-base">
                                 <p class="border-b-2 border-[#03071233] cursor-pointer">Terms and Conditions</p>
                                 <p class="border-b-2 border-[#03071233] cursor-pointer">Cancellation Policy</p>
@@ -443,7 +443,7 @@
         </section>
 
         <!-- ---------------- success pop up section -------------- -->
-        <section class="w-11/12 lg:container mx-auto flex justify-center items-center bg-[#1e1e1e4d] h-screen hidden">
+        <section id="success-popup" class="w-11/12 lg:container mx-auto flex justify-center items-center bg-[#1e1e1e4d] h-screen hidden">
             <div>
                 <div class="bg-white lg:px-14 lg:py-12 px-10 py-9 text-center font-inter w-fit">
                     <img class="mx-auto" src="images/success.png" alt="">
@@ -454,14 +454,14 @@
 
                     </p>
                     <p class="text-[#4a4a4a] font-light text-xl mb-5">Shortly you will find a confirmation in your email.</p>
-                    <button class="btn bg-[#27ae60] px-16">Continue</button>
+                    <button onclick="continueAndBuyAgain()" id="Continue-again" class="btn bg-[#27ae60] px-16">Continue</button>
                 </div>
             </div>
         </section>
     </main>
 
     <!--------------------------- footer ---------------------->
-    <footer class="lg:container mx-auto bg-[#030712] lg:py-24 lg:px-32 md:py-16 md:px-16 py-11 px-10">
+    <footer id="footer" class="lg:container mx-auto bg-[#030712] lg:py-24 lg:px-32 md:py-16 md:px-16 py-11 px-10">
 
         <div
             class="flex flex-col md:flex-row gap-11 md:justify-between pb-11 mb-7 border-b-2 border-dashed border-[#ffffff4d]">

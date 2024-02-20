@@ -178,3 +178,69 @@ function J4() {
 function promo(){
     const discount = applyCoupon('apply-coupon');
 }
+
+// ready to confirm and enable next button
+// functions of input field to confirm buying 
+function fillInputToBuy(){
+    const pName = inputValueById('passenger-name');
+    const phoneNumber = inputValueById('phone-number');
+
+    if(pName && phoneNumber && seats.length >= 1){
+        enableById('confirm-next');
+    }
+}
+
+// confirm and pressed next button
+function confirmedAndNext(){
+    hideElementById('header');
+    hideElementById('section-1');
+    hideElementById('section-2');
+    hideElementById('footer');
+    displayElementById('success-popup');
+
+    // remove values
+    updateIntById('selected', 0);
+    updateIntById('total-price', 0);
+    updateIntById('grand-total', 0);
+    updateIntById('discount-amount', 0);
+
+    // remove values input field
+    setInputValueById('enter-coupon','');
+    setInputValueById('passenger-name','');
+    setInputValueById('phone-number','');
+    setInputValueById('email','');
+
+    // hide and show
+    hideElementById('discount-box');
+    hideElementById('discount-text');
+    displayElementById('apply-coupon-box');
+    disableById('apply-coupon')
+
+    // loops
+    let sit = seat;
+    let elect = select;
+    let booked = seats;
+    for(let i of sit){
+        updateIntById(i, 'NA');
+    }
+    for(let j of elect){
+        hideElementById(j);
+    }
+    for(let k of booked){
+        disableById(k);
+    }
+}
+
+// continue and buy again
+function continueAndBuyAgain(){
+    displayElementById('header');
+    displayElementById('section-1');
+    displayElementById('section-2');
+    displayElementById('footer');
+
+    hideElementById('success-popup');
+    disableById('confirm-next');
+
+    // clear selected seats
+    seats = [];
+}

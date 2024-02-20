@@ -45,6 +45,13 @@ function addBackgroundColorById(id){
     element.classList.add('bg-[#1dd100]');
 }
 
+// Background color turned to default
+function recoverBackgroundColor(id) {
+    const element = document.getElementById(id);
+    element.classList.remove('bg-[#1dd100]');
+    element.classList.add('bg-[#f7f8f8]')
+}
+
 // display element by id for ticket of seat
 function displayElementByIdTicket(showId, id, sId){
     const element = document.getElementById(showId);
@@ -70,7 +77,13 @@ function displayElementById(id){
 // get value of input field by id
 function inputValueById(id){
     const inputValue = document.getElementById(id);
-    const inputText = inputValue.innerText;
+    const inputText = inputValue.value;
 
     return inputText;
+}
+
+// set value of input field by id 
+function setInputValueById(id, value){
+    const setValue = document.getElementById(id);
+    setValue.value = value;
 }

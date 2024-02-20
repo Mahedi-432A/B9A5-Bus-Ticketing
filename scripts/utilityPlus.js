@@ -11,7 +11,57 @@ function play(id) {
     const availableSeat = readIntById('available-seat');
     const selectedSeat = readIntById('selected');
 
-    if (selectedSeat < 4) {
+    // checking the already exist or not
+    let isExist = false;
+    let index;
+    for (let i = 0; i < 4; i++) {
+        if (id === seats[i]) {
+            isExist = true
+            index = i;
+        }
+    }
+
+    // if exist
+    if (isExist) {
+        const available = availableSeat + 1;
+        const selected = selectedSeat - 1;
+
+        updateIntById('available-seat', available);
+        updateIntById('selected', selected);
+
+        recoverBackgroundColor(id);
+
+        seats.splice(index, 1);
+        let price = 0;
+
+        for (let i = 0; i < 4; i++) {
+            if (seats.length > i) {
+                let showId = select[i];
+                let sId = seat[i];
+                let id = seats[i];
+
+                displayElementByIdTicket(showId, id, sId);
+                price = price + 550;
+            } 
+            else {
+                let showId = select[i];
+                hideElementById(showId)
+            }
+        }
+
+        totalPrice = price;
+        updateIntById('total-price', totalPrice);
+
+        if (totalPrice >= 2200) {
+            enableById('apply-coupon');
+        }
+
+        grandTotal = totalPrice;
+        updateIntById('grand-total', grandTotal);
+    }
+
+    // if not exist
+    else if (selectedSeat < 4) {
         const available = availableSeat - 1;
         const selected = selectedSeat + 1;
 
@@ -29,7 +79,7 @@ function play(id) {
                 let showId = select[i];
                 let sId = seat[i];
                 let id = seats[i];
-    
+
                 displayElementByIdTicket(showId, id, sId);
                 price = price + 550;
             }
@@ -38,32 +88,44 @@ function play(id) {
         totalPrice = price;
         updateIntById('total-price', totalPrice);
 
-        if(totalPrice >= 2200){
+        if (totalPrice >= 2200) {
             enableById('apply-coupon');
         }
 
         grandTotal = totalPrice;
         updateIntById('grand-total', grandTotal);
     }
+    // more than 4 selected
     else {
         alert("you can buy maximum 4 ticket at a time.");
     }
 }
 
 // functions for apply promo code
-function applyCoupon(){
+function applyCoupon() {
     const coupon = inputValueById('enter-coupon');
 
-    if(coupon === 'NEW15'){
-        grandTotal = totalPrice * (15/100);
-        console
+    let grandPrice = grandTotal;
+    let discountPrice = 0;
+
+    if (coupon === 'NEW15') {
+        grandPrice = grandPrice - (totalPrice * (15 / 100));
+        grandTotal = grandPrice;
+        discountPrice = totalPrice * (15 / 100);
     }
-    else if(coupon === 'Couple 20'){
-        grandTotal = totalPrice * (20/100);
+    else if (coupon === 'Couple 20') {
+        grandPrice = grandPrice - (totalPrice * (20 / 100));
+        grandTotal = grandPrice;
+        discountPrice = totalPrice * (20 / 100);
     }
-    else{
+    else {
         alert("Enter a valid coupon.");
     }
 
     updateIntById('grand-total', grandTotal);
+
+    hideElementById('apply-coupon-box');
+    displayElementById('discount-box');
+    displayElementById('discount-text');
+    updateIntById('discount-amount', discountPrice);
 }
