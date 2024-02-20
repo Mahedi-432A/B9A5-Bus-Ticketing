@@ -42,7 +42,7 @@ function play(id) {
 
                 displayElementByIdTicket(showId, id, sId);
                 price = price + 550;
-            } 
+            }
             else {
                 let showId = select[i];
                 hideElementById(showId)
@@ -112,11 +112,21 @@ function applyCoupon() {
         grandPrice = grandPrice - (totalPrice * (15 / 100));
         grandTotal = grandPrice;
         discountPrice = totalPrice * (15 / 100);
+
+        hideElementById('apply-coupon-box');
+        displayElementById('discount-box');
+        displayElementById('discount-text');
+        updateIntById('discount-amount', discountPrice);
     }
     else if (coupon === 'Couple 20') {
         grandPrice = grandPrice - (totalPrice * (20 / 100));
         grandTotal = grandPrice;
         discountPrice = totalPrice * (20 / 100);
+
+        hideElementById('apply-coupon-box');
+        displayElementById('discount-box');
+        displayElementById('discount-text');
+        updateIntById('discount-amount', discountPrice);
     }
     else {
         alert("Enter a valid coupon.");
@@ -124,8 +134,5 @@ function applyCoupon() {
 
     updateIntById('grand-total', grandTotal);
 
-    hideElementById('apply-coupon-box');
-    displayElementById('discount-box');
-    displayElementById('discount-text');
-    updateIntById('discount-amount', discountPrice);
+
 }
